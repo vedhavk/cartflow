@@ -1,4 +1,4 @@
-import type { ORPCRouter } from "./router";
+import type { ProductsResponse, Product, User, Category } from "@/types";
 
 // Simple typed client for oRPC procedures
 async function callProcedure<T>(
@@ -26,21 +26,27 @@ async function callProcedure<T>(
 
 // Typed client matching our router structure
 export const orpcClient = {
-  "auth.login": (input: { username: string; password: string }) =>
-    callProcedure("auth.login", input),
-  "auth.me": (input: { token: string }) => callProcedure("auth.me", input),
+  "auth.login": (input: {
+    username: string;
+    password: string;
+  }): Promise<User> => callProcedure<User>("auth.login", input),
+  "auth.me": (input: { token: string }): Promise<User> =>
+    callProcedure<User>("auth.me", input),
   "products.list": (input?: {
     skip?: number;
     limit?: number;
     search?: string;
     category?: string;
-  }) => callProcedure("products.list", input),
-  "products.getById": (input: { id: number }) =>
-    callProcedure("products.getById", input),
-  "products.add": (input: any) => callProcedure("products.add", input),
-  "products.update": (input: { id: number; data: any }) =>
-    callProcedure("products.update", input),
-  "products.delete": (input: { id: number }) =>
-    callProcedure("products.delete", input),
-  "categories.list": () => callProcedure("categories.list"),
+  }): Promise<ProductsResponse> =>
+    callProcedure<ProductsResponse>("products.list", input),
+  "products.getById": (input: { id: number }): Promise<Product> =>
+    callProcedure<Product>("products.getById", input),
+  "products.add": (input: any): Promise<Product> =>
+    callProcedure<Product>("products.add", input),
+  "products.update": (input: { id: number; data: any }): Promise<Product> =>
+    callProcedure<Product>("products.update", input),
+  "products.delete": (input: { id: number }): Promise<Product> =>
+    callProcedure<Product>("products.delete", input),
+  "categories.list": (): Promise<Category[]> =>
+    callProcedure<Category[]>("categories.list"),
 };
