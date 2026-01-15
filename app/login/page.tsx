@@ -216,9 +216,11 @@ export default function LoginPage() {
     } catch (error) {
       // Error shake animation
       gsap.to(cardRef.current, {
-        x: [-10, 10, -10, 10, 0],
-        duration: 0.5,
+        x: "-10",
+        duration: 0.1,
         ease: "power2.out",
+        repeat: 5,
+        yoyo: true,
       });
       console.error("Login failed:", error);
     }
