@@ -74,7 +74,7 @@ export default function OrdersPage() {
   };
 
   const totalOrders = orders.length;
-  const completedOrders = orders.filter((o) => o.status === "delivered").length;
+  const completedOrders = orders.filter((o) => o.status === "completed").length;
   const totalSpent = orders.reduce((sum, order) => sum + order.total, 0);
 
   if (orders.length === 0) {
@@ -244,8 +244,8 @@ function OrderCard({
     statusConfig[order.status as keyof typeof statusConfig] ||
     statusConfig.pending;
 
-  // Only allow cancellation for pending and processing orders
-  const canCancel = order.status === "pending" || order.status === "processing";
+  // Only allow cancellation for pending orders
+  const canCancel = order.status === "pending";
 
   return (
     <div className="p-6 bg-gradient-to-br from-slate-50 to-slate-100 rounded-2xl border border-slate-200 hover:shadow-md transition-all">

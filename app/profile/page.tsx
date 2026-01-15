@@ -25,7 +25,7 @@ export default function ProfilePage() {
   const { items, getTotalPrice } = useCartStore();
   const [isEditing, setIsEditing] = useState(false);
   const [formData, setFormData] = useState({
-    name: user?.name || "John Doe",
+    name: user ? `${user.firstName} ${user.lastName}` : "John Doe",
     email: user?.email || "john.doe@example.com",
     phone: "+1 (555) 123-4567",
     address: "123 Main Street, New York, NY 10001",
@@ -42,7 +42,7 @@ export default function ProfilePage() {
 
   const handleCancel = () => {
     setFormData({
-      name: user?.name || "John Doe",
+      name: user ? `${user.firstName} ${user.lastName}` : "John Doe",
       email: user?.email || "john.doe@example.com",
       phone: "+1 (555) 123-4567",
       address: "123 Main Street, New York, NY 10001",
