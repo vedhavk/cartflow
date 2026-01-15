@@ -229,7 +229,7 @@ export default function LoginPage() {
   return (
     <div
       ref={containerRef}
-      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-gradient-to-br from-cyan-50 via-purple-50 to-blue-50"
+      className="relative flex min-h-screen items-center justify-center overflow-hidden bg-white"
     >
       {/* Animated floating background orbs */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">
@@ -237,25 +237,25 @@ export default function LoginPage() {
           ref={(el) => {
             if (el) floatingElements.current[0] = el;
           }}
-          className="absolute top-20 left-20 w-96 h-96 bg-cyan-300/20 rounded-full blur-3xl"
+          className="absolute top-20 left-20 w-96 h-96 bg-cyan-100/40 rounded-full blur-3xl"
         />
         <div
           ref={(el) => {
             if (el) floatingElements.current[1] = el;
           }}
-          className="absolute top-40 right-20 w-[500px] h-[500px] bg-purple-300/20 rounded-full blur-3xl"
+          className="absolute top-40 right-20 w-[500px] h-[500px] bg-blue-100/30 rounded-full blur-3xl"
         />
         <div
           ref={(el) => {
             if (el) floatingElements.current[2] = el;
           }}
-          className="absolute bottom-20 left-1/3 w-[450px] h-[450px] bg-blue-300/20 rounded-full blur-3xl"
+          className="absolute bottom-20 left-1/3 w-[450px] h-[450px] bg-cyan-100/35 rounded-full blur-3xl"
         />
         <div
           ref={(el) => {
             if (el) floatingElements.current[3] = el;
           }}
-          className="absolute bottom-40 right-1/4 w-80 h-80 bg-purple-200/25 rounded-full blur-3xl"
+          className="absolute bottom-40 right-1/4 w-80 h-80 bg-blue-100/25 rounded-full blur-3xl"
         />
       </div>
 
@@ -308,18 +308,18 @@ export default function LoginPage() {
 
       <Card
         ref={cardRef}
-        className="relative z-10 w-full max-w-md shadow-2xl border border-white/50 backdrop-blur-xl bg-white/80"
+        className="relative z-10 w-full max-w-md shadow-xl border-2 border-cyan-100 bg-white"
       >
         <CardHeader ref={headerRef} className="space-y-3 text-center">
           <div className="flex justify-center mb-2">
             <div className="relative">
-              <div className="absolute inset-0 bg-gradient-to-r from-cyan-500 via-purple-500 to-blue-500 rounded-full blur-lg opacity-50" />
-              <div className="relative bg-gradient-to-r from-cyan-500 via-purple-500 to-blue-500 p-4 rounded-full shadow-lg">
+              <div className="absolute inset-0 bg-gradient-to-r from-cyan-300 to-blue-300 rounded-full blur-lg opacity-40" />
+              <div className="relative bg-gradient-to-r from-cyan-400 to-blue-400 p-4 rounded-full shadow-lg">
                 <Lock className="w-8 h-8 text-white" />
               </div>
             </div>
           </div>
-          <CardTitle className="text-3xl font-bold bg-gradient-to-r from-cyan-600 via-purple-600 to-blue-600 bg-clip-text text-transparent">
+          <CardTitle className="text-3xl font-bold bg-gradient-to-r from-cyan-500 to-blue-500 bg-clip-text text-transparent">
             Welcome Back
           </CardTitle>
           <CardDescription className="text-base text-gray-600">
@@ -337,7 +337,7 @@ export default function LoginPage() {
                 htmlFor="username"
                 className="text-sm font-medium flex items-center gap-2 text-gray-700"
               >
-                <User className="w-4 h-4 text-purple-600" />
+                <User className="w-4 h-4 text-cyan-500" />
                 Username
               </label>
               <div className="relative group">
@@ -346,7 +346,7 @@ export default function LoginPage() {
                   type="text"
                   {...register("username")}
                   disabled={loginMutation.isPending}
-                  className="transition-all duration-300 focus:ring-2 focus:ring-purple-500 border-gray-200 hover:border-purple-300"
+                  className="transition-all duration-300 focus:ring-2 focus:ring-cyan-400 border-gray-200 hover:border-cyan-300"
                 />
               </div>
               {errors.username && (
@@ -361,7 +361,7 @@ export default function LoginPage() {
                 htmlFor="password"
                 className="text-sm font-medium flex items-center gap-2 text-gray-700"
               >
-                <Lock className="w-4 h-4 text-purple-600" />
+                <Lock className="w-4 h-4 text-cyan-500" />
                 Password
               </label>
               <div className="relative group">
@@ -370,7 +370,7 @@ export default function LoginPage() {
                   type="password"
                   {...register("password")}
                   disabled={loginMutation.isPending}
-                  className="transition-all duration-300 focus:ring-2 focus:ring-purple-500 border-gray-200 hover:border-purple-300"
+                  className="transition-all duration-300 focus:ring-2 focus:ring-cyan-400 border-gray-200 hover:border-cyan-300"
                 />
               </div>
               {errors.password && (
@@ -390,7 +390,7 @@ export default function LoginPage() {
 
             <Button
               type="submit"
-              className="submit-btn w-full bg-gradient-to-r from-cyan-500 via-purple-500 to-blue-500 hover:from-cyan-600 hover:via-purple-600 hover:to-blue-600 text-white font-semibold py-6 shadow-lg hover:shadow-xl transition-all duration-300"
+              className="submit-btn w-full bg-gradient-to-r from-cyan-400 to-blue-400 hover:from-cyan-500 hover:to-blue-500 text-white font-semibold py-6 shadow-lg hover:shadow-xl transition-all duration-300"
               disabled={loginMutation.isPending}
             >
               {loginMutation.isPending ? (
@@ -403,12 +403,12 @@ export default function LoginPage() {
               )}
             </Button>
 
-            <div className="form-field bg-gradient-to-r from-cyan-50 via-purple-50 to-blue-50 p-4 rounded-lg border border-purple-200">
-              <p className="text-sm font-semibold text-purple-900 mb-2 flex items-center gap-2">
+            <div className="form-field bg-cyan-50 p-4 rounded-lg border border-cyan-200">
+              <p className="text-sm font-semibold text-cyan-900 mb-2 flex items-center gap-2">
                 <Sparkles className="w-4 h-4" />
                 Demo Credentials
               </p>
-              <div className="space-y-1 text-sm text-purple-700">
+              <div className="space-y-1 text-sm text-cyan-700">
                 <p className="font-mono bg-white/70 px-2 py-1 rounded">
                   Username: emilys
                 </p>

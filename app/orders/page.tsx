@@ -96,7 +96,7 @@ export default function OrdersPage() {
               <p className="mt-2 text-slate-500">
                 Your order history will appear here
               </p>
-              <Link href="/dashboard">
+              <Link href="/products">
                 <button className="mt-6 bg-gradient-to-r from-purple-500 to-purple-600 hover:from-purple-600 hover:to-purple-700 text-white px-6 py-3 rounded-xl font-medium shadow-lg transition-all">
                   Start Shopping
                 </button>

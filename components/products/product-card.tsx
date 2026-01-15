@@ -73,7 +73,7 @@ export function ProductCard({ product, onEdit, onDelete }: ProductCardProps) {
         </CardContent>
         <CardFooter className="flex gap-2 p-4 pt-0">
           <Button
-            className="flex-1"
+            className="flex-1 bg-blue-500 hover:bg-blue-600 text-white"
             onClick={handleAddToCart}
             disabled={product.stock === 0}
           >
