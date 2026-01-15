@@ -5,7 +5,7 @@ import {
   useInfiniteQuery,
 } from "@tanstack/react-query";
 import { orpcClient } from "@/lib/orpc/client";
-import type { Product } from "@/types";
+import type { Product, ProductsResponse } from "@/types";
 import { PRODUCTS_PER_PAGE } from "@/lib/constants";
 
 // Products queries
@@ -15,7 +15,7 @@ export function useProducts(params?: {
   skip?: number;
   limit?: number;
 }) {
-  return useQuery({
+  return useQuery<ProductsResponse>({
     queryKey: ["products", params],
     queryFn: () => orpcClient["products.list"](params || {}),
   });
